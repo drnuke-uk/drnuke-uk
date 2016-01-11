@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-US">
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8">
+        
+        <link href="https://fonts.googleapis.com/css?family=Fira+Sans:400,700,500,300,300italic,400italic,500italic,700italic" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+        <link rel="stylesheet" href="assets/application.css" type="text/css">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <!--[if lt IE 9]><script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script><![endif]-->
+        
+        <script type="text/javascript" src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+        <script type="text/javascript" src="assets/js/plugins.js"></script>
+        
+        <title>Imperial College London Memory Research Centre</title>
+        <meta name="description" content="A new research study for Alzheimer’s disease being carried out by Imperial College London Memory Research Group.">
+        <meta name="keywords" content="impeial college london, memory research group, alzheimers, paul edison, hammersmith hospital">
+    </head>
+    <body class="stretched no-transition">
+        
+        <div id="wrapper" class="clearfix">
+            
+            <header id="header">
+                <div id="header-wrap">
+                    <div class="container clearfix">
+                        <div id="primary-menu-trigger">
+                            <i class="icon-reorder"></i>
+                        </div>
+                        
+                        <div id="logo">
+                            <a href="/index.html" class="standard-logo" data-dark-logo="assets/images/logo-dark.png">
+                                <img src="assets/images/logo.png" alt="Imperial College London Memory Research Centre">
+                            </a>
+                        </div>
+                        
+                        
+                        <nav id="primary-menu" class="sub-title">
+                            <ul>
+                                <li class="current">
+                                    <a href="/index.html">
+                                        <div>Home</div>
+                                        <span>Welcome</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/about-us.html">
+                                        <div>About Us</div>
+                                        <span>Who We Are</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/studies.html">
+                                        <div>Studies</div>
+                                        <span>Our Current Studies</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/news.html">
+                                        <div>News</div>
+                                        <span>Latest News</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/faqs.html">
+                                        <div>FAQs</div>
+                                        <span>Have a Question?</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/contact-us.html">
+                                        <div>Contact Us</div>
+                                        <span>Get in Touch</span>
+                                    </a>
+                                </li>
+                            </ul>
+                            
+                            
+                            
+                            
+                            
+                            
+                        </nav>
+                        
+                    </div>
+                </div>
+            </header>
+            
+            <section id="slider" class="slider-parallax swiper_wrapper clearfix">
+                <div class="swiper-container swiper-parent">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide dark" style="background-image: url('assets/images/slider/swiper/1.jpg')">
+                            <div class="container clearfix">
+                                <div class="slider-caption slider-caption-center">
+                                    <h2 data-caption-animate="fadeInUp">Welcome to our Memory Centre</h2>
+                                    <p data-caption-animate="fadeInUp" data-caption-delay="200">We are conducting a research study looking at brain scans and memory tests in people who may have memory problems.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide dark" style="background-image: url('assets/images/slider/swiper/3.jpg'); background-position: center top">
+                            <div class="container clearfix">
+                                <div class="slider-caption slider-caption-center">
+                                    <h2 data-caption-animate="fadeInUp">Great Performance</h2>
+                                    <p data-caption-animate="fadeInUp" data-caption-delay="200">You'll be surprised to see the Final Results of your Creation &amp; would crave for more.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="slider-arrow-left">
+                        <i class="icon-angle-left"></i>
+                    </div>
+                    <div id="slider-arrow-right">
+                        <i class="icon-angle-right"></i>
+                    </div>
+                    <div id="slide-number">
+                        <div id="slide-number-current"></div>
+                        <span>/</span>
+                        <div id="slide-number-total"></div>
+                    </div>
+                </div>
+                <script>
+                jQuery(document).ready(function($)
+                {
+                    var swiperSlider = new Swiper('.swiper-parent',
+                    {
+                        paginationClickable: false,
+                        slidesPerView: 1,
+                        grabCursor: true,
+                        onSwiperCreated: function(swiper)
+                        {
+                            $('[data-caption-animate]').each(function()
+                            {
+                                var $toAnimateElement = $(this);
+                                var toAnimateDelay = $(this).attr('data-caption-delay');
+                                var toAnimateDelayTime = 0;
+                                if (toAnimateDelay)
+                                {
+                                    toAnimateDelayTime = Number(toAnimateDelay) + 750;
+                                }
+                                else
+                                {
+                                    toAnimateDelayTime = 750;
+                                }
+                                if (!$toAnimateElement.hasClass('animated'))
+                                {
+                                    $toAnimateElement.addClass('not-animated');
+                                    var elementAnimation = $toAnimateElement.attr('data-caption-animate');
+                                    setTimeout(function()
+                                    {
+                                        $toAnimateElement.removeClass('not-animated').addClass(elementAnimation + ' animated');
+                                    }, toAnimateDelayTime);
+                                }
+                            });
+                        },
+                        onSlideChangeStart: function(swiper)
+                        {
+                            $('#slide-number-current').html(swiper.activeIndex + 1);
+                            $('[data-caption-animate]').each(function()
+                            {
+                                var $toAnimateElement = $(this);
+                                var elementAnimation = $toAnimateElement.attr('data-caption-animate');
+                                $toAnimateElement.removeClass('animated').removeClass(elementAnimation).addClass('not-animated');
+                            });
+                        },
+                        onSlideChangeEnd: function(swiper)
+                        {
+                            $('#slider .swiper-slide').each(function()
+                            {
+                                if ($(this).find('video').length > 0)
+                                {
+                                    $(this).find('video').get(0).pause();
+                                }
+                            });
+                            $('#slider .swiper-slide:not(".swiper-slide-active")').each(function()
+                            {
+                                if ($(this).find('video').length > 0)
+                                {
+                                    if ($(this).find('video').get(0).currentTime != 0) $(this).find('video').get(0).currentTime = 0;
+                                }
+                            });
+                            if ($('#slider .swiper-slide.swiper-slide-active').find('video').length > 0)
+                            {
+                                $('#slider .swiper-slide.swiper-slide-active').find('video').get(0).play();
+                            }
+                            $('#slider .swiper-slide.swiper-slide-active [data-caption-animate]').each(function()
+                            {
+                                var $toAnimateElement = $(this);
+                                var toAnimateDelay = $(this).attr('data-caption-delay');
+                                var toAnimateDelayTime = 0;
+                                if (toAnimateDelay)
+                                {
+                                    toAnimateDelayTime = Number(toAnimateDelay) + 300;
+                                }
+                                else
+                                {
+                                    toAnimateDelayTime = 300;
+                                }
+                                if (!$toAnimateElement.hasClass('animated'))
+                                {
+                                    $toAnimateElement.addClass('not-animated');
+                                    var elementAnimation = $toAnimateElement.attr('data-caption-animate');
+                                    setTimeout(function()
+                                    {
+                                        $toAnimateElement.removeClass('not-animated').addClass(elementAnimation + ' animated');
+                                    }, toAnimateDelayTime);
+                                }
+                            });
+                        }
+                    });
+                    $('#slider-arrow-left').on('click', function(e)
+                    {
+                        e.preventDefault();
+                        swiperSlider.swipePrev();
+                    });
+                    $('#slider-arrow-right').on('click', function(e)
+                    {
+                        e.preventDefault();
+                        swiperSlider.swipeNext();
+                    });
+                    $('#slide-number-current').html(swiperSlider.activeIndex + 1);
+                    $('#slide-number-total').html(swiperSlider.slides.length);
+                });
+                </script>
+            </section>
+            <section id="content">
+                <div class="content-wrap">
+                    <div class="section header-stick">
+                        <div class="container clearfix">
+                            <div class="row">
+                                <div class="col-md-9">
+                                    <div class="heading-block bottommargin-sm">
+                                        <h3>
+                                            <span>Imperial College London</span> Memory Research Group</h3>
+                                    </div>
+                                    <p>
+                                        At the Imperial College Memory Research Centre led by Dr Paul Edison, we focus our research on Alzheimer's disease, mild cognitive impairment, and causes of dementia and cognitive impairment.
+                                    </p>
+                                    <p class="nobottommargin">
+                                        We evaluate neuroinflammation and neurodegeneration using PET, MRI, and CSF markers. We are now evaluating the relationship between Neuroinflammation, Tau, glucose metabolism, and structural and functional changes measured by MRI. We heavily focus on basic and translational imaging using PET and MRI. We are evaluating novel therapeutic targets in dementia and cognitive impairment in Phase 1 and Phase 2/3 studies.
+                                    </p>
+                                </div>
+                                <div class="col-md-3">
+                                    <a href="/studies.html" class="button button-3d button-xlarge button-rounded button-amber btn-block center" style="margin-top: 30px">View our studies</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container clearfix">
+                        <div class="heading-block center">
+                            <h3>Our
+                                <span>Current Studies</span>
+                            </h3>
+                            <span>Information regarding a new research study for Alzheimer’s disease</span>
+                        </div>
+                        <div class="col_one_third bottommargin">
+                            <div class="feature-box media-box">
+                                <div class="fbox-media">
+                                    <a href="/studies/liraglutide-study.html">
+                                        <img class="image_fade" src="http://lorempixel.com/400/250/people/?1" alt="Liraglutide Study">
+                                    </a>
+                                </div>
+                                <div class="fbox-desc">
+                                    <h3>Evaluating Liraglutide in Patients with Alzheimer's Disease</h3>
+                                    <p>Evaluating possible future treatment in Alzheimer’s disease using the agent which is already used for the treatment of diabetes.</p>
+                                    <p><a href="/studies/liraglutide-study.html" class="more-link">Read More</a></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col_one_third bottommargin">
+                            <div class="feature-box media-box">
+                                <div class="fbox-media">
+                                    <a href="/studies/neuroinflammatory-study.html">
+                                        <img class="image_fade" src="http://lorempixel.com/400/250/people/?2" alt="Neuro-inflammation and Amyloid Study">
+                                    </a>
+                                </div>
+                                <div class="fbox-desc">
+                                    <h3>Neuro-inflammation and Amyloid Study
+                                    </h3>
+                                    <p>Investigating wow often brain changes seen in some Alzheimer’s disease patients are seen in people with Mild Cognitive Impairment.</p>
+                                    <p><a href="/studies/neuroinflammatory-study.html" class="more-link">Read More</a></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col_one_third bottommargin col_last">
+                            <div class="feature-box media-box">
+                                <div class="fbox-media">
+                                    <a href="/studies/microglial-activation.html">
+                                        <img class="image_fade" src="assets/images/studies/cognitive-impairment.jpg" alt="Microglial Activation in Alzheimer’s disease and Mild Cognitive Impairment">
+                                    </a>
+                                </div>
+                                <div class="fbox-desc">
+                                    <h3>Microglial Activation in Alzheimer’s disease and Mild Cognitive Impairment
+                                    </h3>
+                                    <p>The aim of this study is to find out how often brain changes with the protein build-up seen in some Alzheimer’s disease patients.</p>
+                                    <p><a href="/studies/microglial-activation.html" class="more-link">Read More</a></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="container clearfix">
+                        <div class="col_one_third nobottommargin">
+                            <div class="feature-box media-box">
+                                <div class="fbox-media">
+                                    <a href="/studies/uptake-kinetics-study.html">
+                                        <img class="image_fade" src="assets/images/studies/neuron-apoptosis.jpg" alt="Uptake and Kinetics of [18F]ICMT11">
+                                    </a>
+                                </div>
+                                <div class="fbox-desc">
+                                    <h3>Uptake and Kinetics of [18F]ICMT11</h3>
+                                    <p>Evaluating brain changes seen in some Alzheimer’s disease patients (protein build-up and specific proteins activity in the brain).</p>
+                                    <p><a href="/studies/uptake-kinetics-study.html" class="more-link">Read More</a></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col_one_third nobottommargin">
+                            <div class="feature-box media-box">
+                                <div class="fbox-media">
+                                    <a href="/studies/astroglial-activation-study.html">
+                                        <img class="image_fade" src="assets/images/studies/delirium.jpg" alt="Astroglial activation, β-amyloid deposition and neuronal activity in AD">
+                                    </a>
+                                </div>
+                                <div class="fbox-desc">
+                                    <h3>Astroglial activation, β-amyloid deposition and neuronal activity in AD
+                                    </h3>
+                                    <p>Evaluating brain changes seen in some Alzheimer’s disease patients using a novel astroglial activation imaging marker [11C]BU99008.</p>
+                                    <p><a href="/studies/astroglial-activation-study.html" class="more-link">Read More</a></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col_one_third nobottommargin col_last">
+                            
+                            <div class="heading-block center">
+                                <h2>
+                                    <span>Take part</span>
+                                    <br>in a study</h2>
+                                <span class="bottommargin-sm">If you are potentially interested in taking part, you can apply online.</span>
+                                <p><a href="/contact-us.html" class="button button-3d button-large button-rounded button-green">Apply Online <i class="icon-circle-arrow-right"></i></a></p>
+                            </div>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="section parallax bottommargin" style="background-image: url('assets/images/parallax/abstract-4.jpg'); padding: 100px 0" data-stellar-background-ratio="0.3">
+                        <div class="heading-block center nobottomborder nobottommargin">
+                            
+                            <h2>Have a question? ...Please check our &ldquo;<a href="/faqs">Frequently Asked Questions</a>&rdquo;</h2>
+                        </div>
+                    </div>
+                    <div class="container clearfix">
+                        <div class="fancy-title">
+                            <h4>OUR LATEST NEWS</h4>
+                        </div>
+                        
+                        <div id="posts" class="post-grid grid-3 clearfix">
+                            <div class="entry nobottommargin clearfix">
+                                <div class="entry-image">
+                                    <a href="news/cras-a-dolor-maximus.html">
+                                        <img class="image_fade" src="../assets/images/news/hammersmith-campus.jpg" alt="Standard Post with Image">
+                                    </a>
+                                </div>
+                                <div class="entry-title">
+                                    <h2><a href="news/cras-a-dolor-maximus.html">Cras a dolor maximus</a></h2>
+                                </div>
+                                <ul class="entry-meta clearfix">
+                                    <li>
+                                        <i class="icon-calendar3"></i> 09 September 2015</li>
+                                    
+                                    
+                                </ul>
+                                <div class="entry-content">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione, voluptatem, dolorem animi nisi autem blanditiis enim culpa reiciendis et explicabo tenetur!</p>
+                                    <a href="news/cras-a-dolor-maximus.html" class="more-link">Read More</a>
+                                </div>
+                            </div>
+                            <div class="entry nobottommargin clearfix">
+                                <div class="entry-image">
+                                    <a href="news/lorem-ipsum-dolor-sit-amet.html">
+                                        <img class="image_fade" src="../assets/images/news/imperial-college-london.jpg" alt="Standard Post with Image">
+                                    </a>
+                                </div>
+                                <div class="entry-title">
+                                    <h2><a href="news/lorem-ipsum-dolor-sit-amet.html">Lorem ipsum dolor sit amet</a></h2>
+                                </div>
+                                <ul class="entry-meta clearfix">
+                                    <li>
+                                        <i class="icon-calendar3"></i> 10 October 2014</li>
+                                    
+                                    
+                                </ul>
+                                <div class="entry-content">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione, voluptatem, dolorem animi nisi autem blanditiis enim culpa reiciendis et explicabo tenetur!</p>
+                                    <a href="news/lorem-ipsum-dolor-sit-amet.html" class="more-link">Read More</a>
+                                </div>
+                            </div>
+                            <div class="entry nobottommargin clearfix">
+                                <div class="entry-image">
+                                    <a href="news/vivamus-sulputate.html">
+                                        <img class="image_fade" src="../assets/images/news/3m-brain-research.jpg" alt="Standard Post with Image">
+                                    </a>
+                                </div>
+                                <div class="entry-title">
+                                    <h2><a href="news/vivamus-sulputate.html">Praesent a dolor est</a></h2>
+                                </div>
+                                <ul class="entry-meta clearfix">
+                                    <li>
+                                        <i class="icon-calendar3"></i> 09 September 2014</li>
+                                    
+                                    
+                                </ul>
+                                <div class="entry-content">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione, voluptatem, dolorem animi nisi autem blanditiis enim culpa reiciendis et explicabo tenetur!</p>
+                                    <a href="news/vivamus-sulputate.html" class="more-link">Read More</a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </section>
+            
+            <footer id="footer" class="dark">
+                <div class="container">
+                    
+                    <div class="footer-widgets-wrap clearfix">
+                        <div class="col_one_third">
+                            <div class="widget clearfix">
+                                <img src="assets/images/footer-widget-logo.png" alt="" class="footer-logo">
+                                <div style="background: url('assets/images/world-map.png') no-repeat center center; background-size: 100%">
+                                    <address>
+                                        Neurology Imaging Unit
+                                        <br> 1st floor, B Block
+                                        <br> Hammersmith Hospital
+                                        <br> DuCane Road
+                                        <br> London
+                                        <br> W12 0NN
+                                        <br> United Kingdom
+                                    </address>
+                                    <abbr title="Phone Number">
+                                        <strong>Phone:</strong>
+                                    </abbr> 0208 383 3704
+                                    <br>
+                                    <abbr title="Fax">
+                                        <strong>Fax:</strong>
+                                    </abbr> 0203 303 4320
+                                    <br>
+                                    <abbr title="Email Address">
+                                        <strong>Email:</strong>
+                                    </abbr> <a href="mailto:memory@imperial.ac.uk">memory@imperial.ac.uk</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col_one_third">
+                            <div class="widget clearfix">
+                                <h4>Latest News</h4>
+                                <div id="post-list-footer">
+                                    <div class="spost clearfix">
+                                        <div class="entry-c">
+                                            <div class="entry-title">
+                                                <h4><a href="news/cras-a-dolor-maximus.html">Cras a dolor maximus</a></h4>
+                                            </div>
+                                            <ul class="entry-meta">
+                                                <li>09 September 2015</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="spost clearfix">
+                                        <div class="entry-c">
+                                            <div class="entry-title">
+                                                <h4><a href="news/lorem-ipsum-dolor-sit-amet.html">Lorem ipsum dolor sit amet</a></h4>
+                                            </div>
+                                            <ul class="entry-meta">
+                                                <li>10 October 2014</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="spost clearfix">
+                                        <div class="entry-c">
+                                            <div class="entry-title">
+                                                <h4><a href="news/vivamus-sulputate.html">Praesent a dolor est</a></h4>
+                                            </div>
+                                            <ul class="entry-meta">
+                                                <li>09 September 2014</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col_one_third col_last">
+                            <div class="widget quick-contact-widget clearfix">
+                                <h4>Send a Message</h4>
+                                <div id="quick-contact-form-result" data-notify-type="success" data-notify-msg="<i class=icon-ok-sign></i> Message Sent Successfully!"></div>
+                                <form id="quick-contact-form" name="quick-contact-form" action="include/quickcontact.php" method="post" class="quick-contact-form nobottommargin">
+                                    <div class="form-process"></div>
+                                    <div class="input-group divcenter">
+                                        <span class="input-group-addon">
+                                            <i class="icon-user"></i>
+                                        </span>
+                                        <input type="text" class="required form-control input-block-level" id="quick-contact-form-name" name="quick-contact-form-name" value="" placeholder="Full Name">
+                                    </div>
+                                    <div class="input-group divcenter">
+                                        <span class="input-group-addon">
+                                            <i class="icon-email2"></i>
+                                        </span>
+                                        <input type="text" class="required form-control email input-block-level" id="quick-contact-form-email" name="quick-contact-form-email" value="" placeholder="Email Address">
+                                    </div>
+                                    <textarea class="required form-control input-block-level short-textarea" id="quick-contact-form-message" name="quick-contact-form-message" rows="4" cols="30" placeholder="Message"></textarea>
+                                    <input type="text" class="hidden" id="quick-contact-form-botcheck" name="quick-contact-form-botcheck" value="">
+                                    <button type="submit" id="quick-contact-form-submit" name="quick-contact-form-submit" class="btn btn-danger nomargin" value="submit">Send Email</button>
+                                </form>
+                                <script type="text/javascript">
+                                $("#quick-contact-form").validate(
+                                {
+                                    submitHandler: function(form)
+                                    {
+                                        $(form).animate(
+                                        {
+                                            opacity: 0.4
+                                        });
+                                        $(form).find('.form-process').fadeIn();
+                                        $(form).ajaxSubmit(
+                                        {
+                                            target: '#quick-contact-form-result',
+                                            success: function()
+                                            {
+                                                $(form).animate(
+                                                {
+                                                    opacity: 1
+                                                });
+                                                $(form).find('.form-process').fadeOut();
+                                                $(form).find('.form-control').val('');
+                                                $('#quick-contact-form-result').attr('data-notify-msg', $('#quick-contact-form-result').html()).html('');
+                                                SEMICOLON.widget.notifications($('#quick-contact-form-result'));
+                                            }
+                                        });
+                                    }
+                                });
+                                </script>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+                
+                <div id="copyrights">
+                    <div class="container clearfix">
+                        <div class="col_half">
+                            <i class="icon-envelope2"></i> memory@imperial.ac.uk
+                            <span class="middot">&middot;</span>
+                            <i class="icon-phone3"></i> 0208 383 3704
+                            <span class="middot">&middot;</span>
+                            <i class="icon-print"></i> 0203 303 4320
+                            <br> &copy; 2015 Imperial College London
+                            <span class="middot">·</span> Site by <a href="http://www.drnuke.co.uk" target="_blank">DrNuke</a> &amp; <a href="http://www.thomaspashleydesign.co.uk/" target="_blank">Thomas Pashley Design</a>
+                            
+                        </div>
+                        <div class="col_half col_last tright">
+                            <div class="fright clearfix">
+                                <a href="https://www.facebook.com/imperialcollegelondon" class="social-icon si-small si-borderless si-facebook">
+                                    <i class="icon-facebook"></i>
+                                    <i class="icon-facebook"></i>
+                                </a>
+                                <a href="https://twitter.com/imperialcollege" class="social-icon si-small si-borderless si-twitter">
+                                    <i class="icon-twitter"></i>
+                                    <i class="icon-twitter"></i>
+                                </a>
+                                <a href="http://www.youtube.com/user/imperialcollegevideo" class="social-icon si-small si-borderless si-twitter">
+                                    <i class="icon-youtube"></i>
+                                    <i class="icon-youtube"></i>
+                                </a>
+                                <a href="https://www.linkedin.com/edu/imperial-college-london-12598" class="social-icon si-small si-borderless si-linkedin">
+                                    <i class="icon-linkedin"></i>
+                                    <i class="icon-linkedin"></i>
+                                </a>
+                                <a href="https://plus.google.com/100357106915062883581/posts" class="social-icon si-small si-borderless si-gplus">
+                                    <i class="icon-gplus"></i>
+                                    <i class="icon-gplus"></i>
+                                </a>
+                                <a href="http://instagram.com/imperialcollege" class="social-icon si-small si-borderless si-gplus">
+                                    <i class="icon-instagram"></i>
+                                    <i class="icon-instagram"></i>
+                                </a>
+                                <a href="http://www.weibo.com/ImperialUK" class="social-icon si-small si-borderless si-gplus">
+                                    <i class="icon-weibo"></i>
+                                    <i class="icon-weibo"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </footer>
+            
+        </div>
+        
+        
+        <div id="gotoTop" class="icon-angle-up"></div>
+        
+        <script type="text/javascript" src="assets/js/functions.js"></script>
+    </body>
+</html>
